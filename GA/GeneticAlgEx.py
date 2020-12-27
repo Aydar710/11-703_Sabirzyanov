@@ -2,15 +2,6 @@ import numpy
 import ga
 import matplotlib.pyplot as pyplot
 
-"""
-Цель y = - как можно скорее максимизировать это уравнение:
-    y = w1x1 + w2x2 + w3x3 + w4x4 + w5x5 + 6wx6
-    где (x1, x2, x3, x4, x5, x6) = (4, -2, 3.5, 5, -11, -4.7)
-    Каковы наилучшие значения для 6 весов от w1 до w6?
-    Будем использовать генетический алгоритм 
-    для получения наилучших возможных значений через несколько поколений.
-"""
-
 
 def show_plot(best_outputs):
     pyplot.plot(best_outputs)
@@ -26,12 +17,6 @@ if __name__ == '__main__':
 
     # Количество весов, которые мы хотим оптимизировать.
     num_weights = len(equation_inputs)
-
-    """
-    Параметры генетического алгоритма:
-        Размер пула скрещивания
-        Численность населения
-    """
     sol_per_pop = 12
     num_parents_mating = 8
 
@@ -42,15 +27,6 @@ if __name__ == '__main__':
     # Создание начальной популяции.
     new_population = numpy.random.uniform(low=-4.0, high=4.0, size=population_size)
     print(new_population)
-
-    """
-    new_population[0, :] = [2.4,  0.7, 8, -2,   5,   1.1]
-    new_population[1, :] = [-0.4, 2.7, 5, -1,   7,   0.1]
-    new_population[2, :] = [-1,   2,   2, -3,   2,   0.9]
-    new_population[3, :] = [4,    7,   12, 6.1, 1.4, -4]
-    new_population[4, :] = [3.1,  4,   0,  2.4, 4.8,  0]
-    new_population[5, :] = [-2,   3,   -7, 6,   3,    3]
-    """
 
     best_outputs = []
     num_generations = 2000
